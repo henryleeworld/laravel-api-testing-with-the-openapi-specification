@@ -1,52 +1,93 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "title": "Test.v1",
-    "version": "1.0"
-  },
-  "servers": [
-    {
-      "url": "http://127.0.0.1:8000"
-    }
-  ],
-  "paths": {
-    "/api/register": {
-      "post": {
-        "summary": "Create user",
-        "tags": [],
-        "responses": {
-          "200": {
-            "description": "Created"
-          }
-        },
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "example": "李亨利"
-                  },
-                  "email": {
-                    "type": "string",
-                    "format": "email",
-                    "example": "test@test.com"
-                  }
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Test.v1",
+        "version": "1.0"
+    },
+    "servers": [{
+        "url": "http://127.0.0.1:8000"
+    }],
+    "paths": {
+        "/api/register": {
+            "post": {
+                "summary": "Create user",
+                "tags": [
+
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "default": false
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "required": [
+                                                "token",
+                                                "name"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User register successfully."
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "message",
+                                        "success"
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
-                "required": [
-                  "name",
-                  "email"
-                ]
-              }
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "李亨利"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "test@test.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "(~M-`u($XIyqv8^"
+                                    },
+                                    "c_password": {
+                                        "type": "string",
+                                        "example": "(~M-`u($XIyqv8^"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "password",
+                                    "c_password"
+                                ]
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
+    },
+    "components": {
+        "schemas": {
+
+        }
     }
-  },
-  "components": {
-    "schemas": {}
-  }
 }

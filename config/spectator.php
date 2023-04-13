@@ -33,14 +33,36 @@ return [
         'remote' => [
             'source' => 'remote',
             'base_path' => env('SPEC_PATH'),
-            'params' => env('SPUR_URL_PARAMS', ''),
+            'params' => env('SPEC_URL_PARAMS', ''),
         ],
 
         'github' => [
             'source' => 'github',
-            'base_path' => env('SPEC_PATH'),
+            'base_path' => env('SPEC_GITHUB_PATH'),
             'repo' => env('SPEC_GITHUB_REPO'),
             'token' => env('SPEC_GITHUB_TOKEN'),
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Paths
+    |--------------------------------------------------------------------------
+    |
+    | Configure path defaults, like prefixes.
+    |
+    */
+
+    'path_prefix' => '',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Errors
+    |--------------------------------------------------------------------------
+    |
+    | Suppress errors in tests and only show messages.
+    |
+    */
+
+    'suppress_errors' => false,
 ];
